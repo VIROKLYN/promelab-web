@@ -1,1 +1,1 @@
-# promelab-web
+Sitio estático de Promelab (reactivos, material y equipo de laboratorio en Aguascalientes), publicado con GitHub Pages desde la rama main. La página vive en la raíz del repositorio y los recursos se enlazan con rutas relativas para servirse correctamente en https://viroklyn.github.io/promelab-web/.
