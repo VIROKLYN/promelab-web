@@ -15,12 +15,12 @@
     err.textContent='';
     var t='Hola Promelab, quiero una cotización.\n\nNombre: '+n.value.trim()+
       (f.empresa.value.trim()?'\nEmpresa: '+f.empresa.value.trim():'')+
-      '\nLínea: '+f.linea.value+'\nCiudad: '+f.ciudad.value+'\n\nNecesito:\n'+msg.value.trim();
+      '\nLínea: '+f.linea.value+'\n\nNecesito:\n'+msg.value.trim();
     window.open('https://wa.me/524499289602?text='+encodeURIComponent(t),'_blank','noopener');
   });
 
   if('IntersectionObserver' in window){
-    var els=document.querySelectorAll('.line,.prod__card,.why li,.brands__list li,.karal,.form');
+    var els=document.querySelectorAll('.line,.prod__card,.why li,.brandgrid li,.karal,.form,.catcard,.catfeat');
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px'});
     els.forEach(function(el){el.classList.add('rv');io.observe(el);});
   }
