@@ -12,6 +12,11 @@
   var root = document.getElementById("book");
   if (!root) return;
 
+  // Keep modal on body so fixed positioning never breaks
+  if (root.parentElement !== document.body) {
+    document.body.appendChild(root);
+  }
+
   var titleEl = document.getElementById("book-title");
   var countEl = document.getElementById("book-count");
   var scene = document.getElementById("book-scene");
@@ -23,6 +28,7 @@
   var flipping = false;
   var touchX = null;
   var lastFocus = null;
+  var openKey = "";
 
   function pad(n) {
     return (n < 10 ? "0" : "") + n;
@@ -32,15 +38,19 @@
     return "assets/img/flip/" + folder + "/" + pad(n) + ".webp";
   }
 
-  function updateChrome(key) {
+  function isOpen() {
+    return root.classList.contains("is-open");
+  }
+
+  function updateChrome() {
     var hint = root.querySelector(".book__hint");
     countEl.textContent = page + 1 + " / " + total;
     prevBtn.disabled = page <= 0 || flipping;
     nextBtn.disabled = page >= total - 1 || flipping;
     if (hint) {
       hint.textContent =
-        key === "catalogo"
-          ? "Vista previa de las primeras páginas · descarga el PDF completo abajo"
+        openKey === "catalogo"
+          ? "Vista previa de las primeras páginas · descarga el PDF completo"
           : "Haz clic en la hoja, usa las flechas o desliza para pasar la página";
     }
   }
@@ -60,6 +70,7 @@
       img.src = pageUrl(folder, i);
       img.alt = "Página " + i;
       img.draggable = false;
+      img.decoding = "async";
       front.appendChild(img);
       var back = document.createElement("div");
       back.className = "book__face book__face--back";
@@ -87,32 +98,35 @@
     var conf = BOOKS[key];
     if (!conf) return;
     lastFocus = document.activeElement;
+    openKey = key;
     total = conf.pages;
     page = 0;
     flipping = false;
     titleEl.textContent = title || key;
     pdfLink.href = conf.pdf;
-    pdfLink.setAttribute("download", "");
     buildLeaves(conf.folder, conf.pages);
     syncLeaves();
-    updateChrome(key);
-    root.dataset.bookKey = key;
-    root.hidden = false;
-    requestAnimationFrame(function () {
-      root.classList.add("is-open");
-    });
+    updateChrome();
+    root.setAttribute("aria-hidden", "false");
+    root.classList.add("is-open");
     document.body.style.overflow = "hidden";
-    nextBtn.focus();
+    window.scrollTo(0, 0);
+    try {
+      nextBtn.focus();
+    } catch (e) {}
   }
 
   function closeBook() {
+    if (!isOpen()) return;
     root.classList.remove("is-open");
+    root.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    setTimeout(function () {
-      root.hidden = true;
-      scene.innerHTML = "";
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }, 220);
+    scene.innerHTML = "";
+    if (lastFocus && lastFocus.focus) {
+      try {
+        lastFocus.focus();
+      } catch (e) {}
+    }
   }
 
   function flipTo(nextPage) {
@@ -120,10 +134,10 @@
     flipping = true;
     page = nextPage;
     syncLeaves();
-    updateChrome(root.dataset.bookKey);
+    updateChrome();
     setTimeout(function () {
       flipping = false;
-      updateChrome(root.dataset.bookKey);
+      updateChrome();
     }, 700);
   }
 
@@ -138,23 +152,29 @@
     var openBtn = e.target.closest("[data-book]");
     if (openBtn) {
       e.preventDefault();
+      e.stopPropagation();
       openBook(openBtn.getAttribute("data-book"), openBtn.getAttribute("data-title"));
       return;
     }
-    if (e.target.closest("[data-book-close]")) closeBook();
+    if (e.target.closest("[data-book-close]")) {
+      e.preventDefault();
+      closeBook();
+    }
   });
 
   prevBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     e.stopPropagation();
     prev();
   });
   nextBtn.addEventListener("click", function (e) {
+    e.preventDefault();
     e.stopPropagation();
     next();
   });
 
   document.addEventListener("keydown", function (e) {
-    if (root.hidden) return;
+    if (!isOpen()) return;
     if (e.key === "Escape") closeBook();
     if (e.key === "ArrowRight") next();
     if (e.key === "ArrowLeft") prev();
