@@ -9,10 +9,65 @@
     catalogo: { pages: 8, pdf: "assets/pdf/catalogo-promelab-2026.pdf", folder: "catalogo" }
   };
 
+  var CRITICAL_CSS = [
+    "#book{position:fixed!important;inset:0!important;z-index:99999!important;display:none!important;",
+    "align-items:center!important;justify-content:center!important;padding:18px!important;box-sizing:border-box!important;margin:0!important}",
+    "#book.is-open{display:flex!important}",
+    "#book .book__scrim{position:absolute!important;inset:0!important;background:rgba(30,8,18,.82)!important;cursor:pointer!important;border:0!important}",
+    "#book .book__panel{position:relative!important;z-index:1!important;width:min(920px,100%)!important;",
+    "height:min(860px,calc(100vh - 36px))!important;max-height:calc(100vh - 36px)!important;",
+    "background:#fbf5f1!important;border:1px solid #ead9df!important;display:flex!important;",
+    "flex-direction:column!important;overflow:hidden!important;box-shadow:0 24px 60px rgba(0,0,0,.35)!important}",
+    "#book .book__bar{display:flex!important;justify-content:space-between!important;gap:16px!important;",
+    "align-items:center!important;padding:16px 20px!important;background:#fff!important;border-bottom:1px solid #ead9df!important;flex:0 0 auto!important}",
+    "#book .book__kicker{margin:0 0 2px!important;font-size:12px!important;font-weight:600!important;",
+    "letter-spacing:.14em!important;text-transform:uppercase!important;color:#d63384!important}",
+    "#book .book__bar h2{font-size:34px!important;margin:0!important;color:#8f0948!important;",
+    "font-family:\"Bebas Neue\",Impact,sans-serif!important;font-weight:400!important;line-height:.95!important}",
+    "#book .book__actions{display:flex!important;align-items:center!important;gap:10px!important}",
+    "#book .book__x{width:42px!important;height:42px!important;border:0!important;background:#8f0948!important;",
+    "color:#fff!important;font-size:28px!important;line-height:1!important;cursor:pointer!important}",
+    "#book .book__stage{position:relative!important;flex:1 1 auto!important;display:flex!important;",
+    "align-items:center!important;justify-content:center!important;gap:10px!important;padding:18px 12px!important;",
+    "min-height:320px!important;background:#241018!important}",
+    "#book .book__nav{width:48px!important;height:48px!important;border:0!important;background:#d63384!important;",
+    "color:#fff!important;font-size:32px!important;line-height:1!important;cursor:pointer!important;flex:0 0 auto!important}",
+    "#book .book__nav:disabled{opacity:.35!important;cursor:default!important}",
+    "#book .book__scene{perspective:1800px!important;width:min(420px,62vw)!important;aspect-ratio:560/746!important;",
+    "min-height:280px!important;height:auto!important;flex:0 0 auto!important;position:relative!important}",
+    "#book .book__stack{position:relative!important;width:100%!important;height:100%!important;min-height:280px!important;",
+    "transform-style:preserve-3d!important}",
+    "#book .book__leaf{position:absolute!important;inset:0!important;transform-origin:left center!important;",
+    "transform-style:preserve-3d!important;transition:transform .7s cubic-bezier(.19,1,.22,1)!important;",
+    "border-radius:2px 8px 8px 2px!important;box-shadow:0 18px 40px rgba(0,0,0,.35)!important;background:#fff!important}",
+    "#book .book__leaf.is-turned{transform:rotateY(-178deg)!important}",
+    "#book .book__face{position:absolute!important;inset:0!important;backface-visibility:hidden!important;",
+    "-webkit-backface-visibility:hidden!important;overflow:hidden!important;background:#fff!important}",
+    "#book .book__face--front img{width:100%!important;height:100%!important;object-fit:cover!important;",
+    "display:block!important;pointer-events:none!important;max-width:none!important}",
+    "#book .book__face--back{transform:rotateY(180deg)!important;background:#fbf5f1!important}",
+    "#book .book__foot{display:flex!important;justify-content:space-between!important;gap:12px!important;",
+    "align-items:center!important;padding:12px 20px!important;background:#fff!important;",
+    "border-top:1px solid #ead9df!important;font-size:14px!important;flex:0 0 auto!important}",
+    "#book .book__foot p{margin:0!important}",
+    "#book .book__hint{color:#6b5660!important}",
+    "@media (max-width:700px){#book{padding:0!important}",
+    "#book .book__panel{max-height:100vh!important;height:100vh!important;width:100%!important}",
+    "#book .book__scene{width:min(320px,70vw)!important}#book .book__actions .btn{display:none!important}",
+    "#book .book__hint{display:none!important}}"
+  ].join("");
+
+  if (!document.getElementById("book-critical-css")) {
+    var styleTag = document.createElement("style");
+    styleTag.id = "book-critical-css";
+    styleTag.textContent = CRITICAL_CSS;
+    document.head.appendChild(styleTag);
+  }
+
   var root = document.getElementById("book");
   if (!root) return;
 
-  // Keep modal on body so fixed positioning never breaks
+  // Keep modal on body so fixed positioning never breaks under transformed ancestors
   if (root.parentElement !== document.body) {
     document.body.appendChild(root);
   }
@@ -40,6 +95,17 @@
 
   function isOpen() {
     return root.classList.contains("is-open");
+  }
+
+  function forceOverlayStyles() {
+    root.style.cssText =
+      "position:fixed!important;inset:0!important;top:0!important;right:0!important;bottom:0!important;left:0!important;" +
+      "z-index:99999!important;display:flex!important;align-items:center!important;justify-content:center!important;" +
+      "padding:18px!important;box-sizing:border-box!important;margin:0!important;width:auto!important;height:auto!important;";
+  }
+
+  function clearOverlayStyles() {
+    root.style.cssText = "display:none!important";
   }
 
   function updateChrome() {
@@ -71,6 +137,8 @@
       img.alt = "Página " + i;
       img.draggable = false;
       img.decoding = "async";
+      img.width = 560;
+      img.height = 746;
       front.appendChild(img);
       var back = document.createElement("div");
       back.className = "book__face book__face--back";
@@ -109,8 +177,8 @@
     updateChrome();
     root.setAttribute("aria-hidden", "false");
     root.classList.add("is-open");
+    forceOverlayStyles();
     document.body.style.overflow = "hidden";
-    window.scrollTo(0, 0);
     try {
       nextBtn.focus();
     } catch (e) {}
@@ -120,6 +188,7 @@
     if (!isOpen()) return;
     root.classList.remove("is-open");
     root.setAttribute("aria-hidden", "true");
+    clearOverlayStyles();
     document.body.style.overflow = "";
     scene.innerHTML = "";
     if (lastFocus && lastFocus.focus) {
@@ -147,6 +216,9 @@
   function prev() {
     flipTo(page - 1);
   }
+
+  // Start closed even if old CSS left the block visible at the page foot
+  clearOverlayStyles();
 
   document.addEventListener("click", function (e) {
     var openBtn = e.target.closest("[data-book]");

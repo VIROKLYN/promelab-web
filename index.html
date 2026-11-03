@@ -18,14 +18,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261103b">
+<link rel="stylesheet" href="css/styles.css?v=20261103c">
 <link rel="preload" as="image" href="assets/img/hero.webp">
-<style>
-  /* Modal crítico: evita que una CSS vieja en caché deje el libro al pie de la página */
-  #book{position:fixed!important;inset:0!important;z-index:9999!important;display:none;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+<style id="book-inline-css">
+  /* Modal del libro: estilos críticos en HTML para ignorar CSS vieja en caché */
+  #book{position:fixed!important;inset:0!important;z-index:99999!important;display:none!important;align-items:center!important;justify-content:center!important;padding:18px!important;box-sizing:border-box!important;margin:0!important}
   #book.is-open{display:flex!important}
-  #book .book__scrim{position:absolute;inset:0;background:rgba(30,8,18,.82)}
-  #book .book__panel{position:relative;z-index:1;width:min(920px,100%);height:min(860px,calc(100vh - 36px));background:#fbf5f1;display:flex;flex-direction:column;overflow:hidden}
+  #book .book__scrim{position:absolute!important;inset:0!important;background:rgba(30,8,18,.82)!important}
+  #book .book__panel{position:relative!important;z-index:1!important;width:min(920px,100%)!important;height:min(860px,calc(100vh - 36px))!important;max-height:calc(100vh - 36px)!important;background:#fbf5f1!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;border:1px solid #ead9df!important}
+  #book .book__bar{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:16px!important;padding:16px 20px!important;background:#fff!important;border-bottom:1px solid #ead9df!important;flex:0 0 auto!important}
+  #book .book__kicker{margin:0 0 2px!important;font-size:12px!important;font-weight:600!important;letter-spacing:.14em!important;text-transform:uppercase!important;color:#d63384!important}
+  #book .book__bar h2{margin:0!important;font-size:34px!important;color:#8f0948!important;font-family:"Bebas Neue",Impact,sans-serif!important;line-height:.95!important}
+  #book .book__actions{display:flex!important;align-items:center!important;gap:10px!important}
+  #book .book__x{width:42px!important;height:42px!important;border:0!important;background:#8f0948!important;color:#fff!important;font-size:28px!important;line-height:1!important;cursor:pointer!important}
+  #book .book__stage{position:relative!important;flex:1 1 auto!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;padding:18px 12px!important;min-height:320px!important;background:#241018!important}
+  #book .book__nav{width:48px!important;height:48px!important;border:0!important;background:#d63384!important;color:#fff!important;font-size:32px!important;line-height:1!important;cursor:pointer!important;flex:0 0 auto!important}
+  #book .book__scene{perspective:1800px!important;width:min(420px,62vw)!important;aspect-ratio:560/746!important;min-height:280px!important;flex:0 0 auto!important;position:relative!important}
+  #book .book__stack{position:relative!important;width:100%!important;height:100%!important;min-height:280px!important;transform-style:preserve-3d!important}
+  #book .book__leaf{position:absolute!important;inset:0!important;transform-origin:left center!important;transform-style:preserve-3d!important;transition:transform .7s cubic-bezier(.19,1,.22,1)!important;background:#fff!important;box-shadow:0 18px 40px rgba(0,0,0,.35)!important}
+  #book .book__leaf.is-turned{transform:rotateY(-178deg)!important}
+  #book .book__face{position:absolute!important;inset:0!important;backface-visibility:hidden!important;-webkit-backface-visibility:hidden!important;overflow:hidden!important;background:#fff!important}
+  #book .book__face--front img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important;pointer-events:none!important;max-width:none!important}
+  #book .book__face--back{transform:rotateY(180deg)!important;background:#fbf5f1!important}
+  #book .book__foot{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:12px!important;padding:12px 20px!important;background:#fff!important;border-top:1px solid #ead9df!important;font-size:14px!important;flex:0 0 auto!important}
+  #book .book__foot p{margin:0!important}
+  #book .book__hint{color:#6b5660!important}
 </style>
 </head>
 <body>
@@ -395,7 +412,7 @@
   </div>
 </div>
 
-<script src="js/main.js?v=20261103b" defer></script>
-<script src="js/flipbook.js?v=20261103b" defer></script>
+<script src="js/main.js?v=20261103c" defer></script>
+<script src="js/flipbook.js?v=20261103c" defer></script>
 </body>
 </html>

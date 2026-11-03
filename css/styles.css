@@ -128,7 +128,7 @@ h2 span{color:var(--rosa)}
 .catcard__cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto}
 
 /* virtual book modal */
-.book{position:fixed!important;inset:0!important;z-index:9999!important;display:none;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+.book{position:fixed!important;inset:0!important;z-index:99999!important;display:none!important;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;margin:0}
 .book.is-open{display:flex!important}
 .book__scrim{position:absolute;inset:0;background:rgba(30,8,18,.82);cursor:pointer}
 .book__panel{position:relative;z-index:1;width:min(920px,100%);height:min(860px,calc(100vh - 36px));max-height:calc(100vh - 36px);background:var(--cream);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
@@ -138,7 +138,7 @@ h2 span{color:var(--rosa)}
 .book__actions{display:flex;align-items:center;gap:10px}
 .book__x{width:42px;height:42px;border:0;background:var(--vino);color:#fff;font-size:28px;line-height:1;cursor:pointer}
 .book__x:hover{background:var(--vino-d)}
-.book__stage{position:relative;flex:1;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 12px;min-height:0;background:
+.book__stage{position:relative;flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 12px;min-height:320px;background:
   radial-gradient(circle at 20% 20%,rgba(214,51,132,.12),transparent 40%),
   radial-gradient(circle at 80% 80%,rgba(143,9,72,.14),transparent 42%),
   #241018}
