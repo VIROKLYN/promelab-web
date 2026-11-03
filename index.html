@@ -61,6 +61,21 @@
         <a class="btn btn--light" href="#cotizar">Solicitar cotización</a>
         <a class="btn btn--ghost" href="#lineas">Ver líneas</a>
       </div>
+      <div class="reagent" aria-hidden="true">
+        <svg class="reagent__flask" viewBox="0 0 120 160" width="120" height="160">
+          <path class="reagent__glass" d="M44 8h32v28l28 96c2 8-4 16-12 16H28c-8 0-14-8-12-16L44 36V8z"/>
+          <path class="reagent__liquid" d="M30 92c8-6 20-4 28 2s18 6 28-1c2 10 2 24-2 31H32c-5-8-5-20-2-32z"/>
+          <rect class="reagent__neck" x="48" y="4" width="24" height="18" rx="2"/>
+          <circle class="reagent__b b1" cx="48" cy="118" r="4"/>
+          <circle class="reagent__b b2" cx="68" cy="126" r="3"/>
+          <circle class="reagent__b b3" cx="58" cy="110" r="3.5"/>
+          <circle class="reagent__b b4" cx="78" cy="116" r="2.5"/>
+          <path class="reagent__shine" d="M38 48c-2 18-2 40 0 58" fill="none"/>
+        </svg>
+        <span class="reagent__drop"></span>
+        <span class="reagent__drop d2"></span>
+        <span class="reagent__drop d3"></span>
+      </div>
     </div>
   </div>
   <figure class="hero__img">
@@ -85,27 +100,27 @@
     <div class="lines">
       <article class="line" style="--ac:#b3261e">
         <img src="assets/img/industrial.webp" alt="Matraces y vasos de precipitado con reactivos" loading="lazy" width="720" height="960">
-        <div class="line__body"><p class="line__n">Línea 01</p><h3>Industrial</h3><p>Químicos y reactivos para control de calidad, procesos y análisis.</p><a class="line__more" href="assets/pdf/cuadriptico-industrial.pdf" target="_blank" rel="noopener">Ver cuadríptico</a></div>
+        <div class="line__body"><p class="line__n">Línea 01</p><h3>Industrial</h3><p>Químicos y reactivos para control de calidad, procesos y análisis.</p><button type="button" class="line__more" data-book="industrial" data-title="Industrial">Abrir libro</button></div>
       </article>
       <article class="line" style="--ac:#d63384">
         <img src="assets/img/farmaceutica.webp" alt="Frascos ámbar y viales de vidrio" loading="lazy" width="720" height="960">
-        <div class="line__body"><p class="line__n">Línea 02</p><h3>Farmacéutica</h3><p>Genéricos, patente y material de curación.</p><a class="line__more" href="assets/pdf/cuadriptico-farmaceutica.pdf" target="_blank" rel="noopener">Ver cuadríptico</a></div>
+        <div class="line__body"><p class="line__n">Línea 02</p><h3>Farmacéutica</h3><p>Genéricos, patente y material de curación.</p><button type="button" class="line__more" data-book="farmaceutica" data-title="Farmacéutica">Abrir libro</button></div>
       </article>
       <article class="line" style="--ac:#6b3fa0">
         <img src="assets/img/vida.webp" alt="Planta en caja de Petri sostenida con guantes" loading="lazy" width="720" height="960">
-        <div class="line__body"><p class="line__n">Línea 03</p><h3>Ciencias de la Vida</h3><p>Insumos para microbiología, biología molecular e investigación.</p><a class="line__more" href="assets/pdf/cuadriptico-ciencias-de-la-vida.pdf" target="_blank" rel="noopener">Ver cuadríptico</a></div>
+        <div class="line__body"><p class="line__n">Línea 03</p><h3>Ciencias de la Vida</h3><p>Insumos para microbiología, biología molecular e investigación.</p><button type="button" class="line__more" data-book="ciencias-de-la-vida" data-title="Ciencias de la Vida">Abrir libro</button></div>
       </article>
       <article class="line" style="--ac:#2e7d4f">
         <img src="assets/img/ambiental.webp" alt="Tubo de ensayo con muestra de agua de río" loading="lazy" width="720" height="960">
-        <div class="line__body"><p class="line__n">Línea 04</p><h3>Sector Ambiental</h3><p>Material para muestreo y análisis de agua, suelo y aire.</p><a class="line__more" href="assets/pdf/cuadriptico-ambiental.pdf" target="_blank" rel="noopener">Ver cuadríptico</a></div>
+        <div class="line__body"><p class="line__n">Línea 04</p><h3>Sector Ambiental</h3><p>Material para muestreo y análisis de agua, suelo y aire.</p><button type="button" class="line__more" data-book="ambiental" data-title="Sector Ambiental">Abrir libro</button></div>
       </article>
       <article class="line" style="--ac:#d0661c">
         <img src="assets/img/alimentos.webp" alt="Vasos de precipitado con jugo y leche" loading="lazy" width="720" height="960">
-        <div class="line__body"><p class="line__n">Línea 05</p><h3>Alimentos</h3><p>Reactivos y equipo para análisis e inocuidad alimentaria.</p><a class="line__more" href="assets/pdf/cuadriptico-alimentos.pdf" target="_blank" rel="noopener">Ver cuadríptico</a></div>
+        <div class="line__body"><p class="line__n">Línea 05</p><h3>Alimentos</h3><p>Reactivos y equipo para análisis e inocuidad alimentaria.</p><button type="button" class="line__more" data-book="alimentos" data-title="Alimentos">Abrir libro</button></div>
       </article>
       <article class="line" style="--ac:#1f4e8c">
         <img src="assets/img/clinico.webp" alt="Tubos de muestra clínica junto a un microscopio" loading="lazy" width="720" height="960">
-        <div class="line__body"><p class="line__n">Línea 06</p><h3>Clínico</h3><p>Consumibles y equipo para laboratorio clínico y consultorio.</p><a class="line__more" href="assets/pdf/cuadriptico-clinico.pdf" target="_blank" rel="noopener">Ver cuadríptico</a></div>
+        <div class="line__body"><p class="line__n">Línea 06</p><h3>Clínico</h3><p>Consumibles y equipo para laboratorio clínico y consultorio.</p><button type="button" class="line__more" data-book="clinico" data-title="Clínico">Abrir libro</button></div>
       </article>
     </div>
   </div>
@@ -116,44 +131,58 @@
     <header class="sec__head">
       <p class="num">02</p>
       <h2>Catálogos</h2>
-      <p class="lead">El catálogo general y un cuadríptico por línea. Ábrelos en el navegador o descárgalos.</p>
+      <p class="lead">Hojéalos como un libro virtual: pasa las páginas, mira la portada y descarga el PDF si lo necesitas.</p>
     </header>
     <article class="catfeat">
-      <img src="assets/img/catalogo-2026.webp" alt="Portada del Catálogo Promelab 2026" width="900" height="1124">
+      <button type="button" class="catfeat__cover" data-book="catalogo" data-title="Catálogo Promelab 2026" data-pdf="assets/pdf/catalogo-promelab-2026.pdf" data-pages="8" aria-label="Abrir libro del Catálogo Promelab 2026">
+        <img src="assets/img/catalogo-2026.webp" alt="Portada del Catálogo Promelab 2026" width="900" height="1124">
+      </button>
       <div class="catfeat__copy">
         <p class="kicker">Edición 2026</p>
         <h3>Catálogo Promelab 2026</h3>
         <p>Equipos, consumibles, cristalería, reactivos, plásticos e instrumental para tu laboratorio.</p>
         <div class="catfeat__cta">
-          <a class="btn btn--light" href="assets/pdf/catalogo-promelab-2026.pdf" target="_blank" rel="noopener">Ver en línea</a>
-          <a class="btn btn--ghost" href="assets/pdf/catalogo-promelab-2026.pdf" download>Descargar</a>
+          <button type="button" class="btn btn--light" data-book="catalogo" data-title="Catálogo Promelab 2026" data-pdf="assets/pdf/catalogo-promelab-2026.pdf" data-pages="8">Abrir libro</button>
+          <a class="btn btn--ghost" href="assets/pdf/catalogo-promelab-2026.pdf" download>Descargar PDF</a>
         </div>
       </div>
     </article>
     <div class="catgrid">
       <article class="catcard" id="cuadriptico-industrial" style="--ac:#b3261e">
-        <img src="assets/img/cuadriptico-industrial.webp" alt="Portada del cuadríptico Industrial" width="690" height="920" loading="lazy">
-        <div class="catcard__body"><h3>Industrial</h3><div class="catcard__cta"><a class="btn btn--sm" href="assets/pdf/cuadriptico-industrial.pdf" target="_blank" rel="noopener">Ver</a><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-industrial.pdf" download>Descargar</a></div></div>
+        <button type="button" class="catcard__cover" data-book="industrial" data-title="Industrial" aria-label="Abrir libro Industrial">
+          <img src="assets/img/cuadriptico-industrial.webp" alt="Portada del cuadríptico Industrial" width="690" height="920" loading="lazy">
+        </button>
+        <div class="catcard__body"><h3>Industrial</h3><div class="catcard__cta"><button type="button" class="btn btn--sm" data-book="industrial" data-title="Industrial">Abrir libro</button><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-industrial.pdf" download>Descargar</a></div></div>
       </article>
       <article class="catcard" id="cuadriptico-farmaceutica" style="--ac:#d63384">
-        <img src="assets/img/cuadriptico-farmaceutica.webp" alt="Portada del cuadríptico Farmacéutica" width="690" height="920" loading="lazy">
-        <div class="catcard__body"><h3>Farmacéutica</h3><div class="catcard__cta"><a class="btn btn--sm" href="assets/pdf/cuadriptico-farmaceutica.pdf" target="_blank" rel="noopener">Ver</a><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-farmaceutica.pdf" download>Descargar</a></div></div>
+        <button type="button" class="catcard__cover" data-book="farmaceutica" data-title="Farmacéutica" aria-label="Abrir libro Farmacéutica">
+          <img src="assets/img/cuadriptico-farmaceutica.webp" alt="Portada del cuadríptico Farmacéutica" width="690" height="920" loading="lazy">
+        </button>
+        <div class="catcard__body"><h3>Farmacéutica</h3><div class="catcard__cta"><button type="button" class="btn btn--sm" data-book="farmaceutica" data-title="Farmacéutica">Abrir libro</button><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-farmaceutica.pdf" download>Descargar</a></div></div>
       </article>
       <article class="catcard" id="cuadriptico-vida" style="--ac:#6b3fa0">
-        <img src="assets/img/cuadriptico-ciencias-de-la-vida.webp" alt="Portada del cuadríptico Ciencias de la Vida" width="690" height="920" loading="lazy">
-        <div class="catcard__body"><h3>Ciencias de la Vida</h3><div class="catcard__cta"><a class="btn btn--sm" href="assets/pdf/cuadriptico-ciencias-de-la-vida.pdf" target="_blank" rel="noopener">Ver</a><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-ciencias-de-la-vida.pdf" download>Descargar</a></div></div>
+        <button type="button" class="catcard__cover" data-book="ciencias-de-la-vida" data-title="Ciencias de la Vida" aria-label="Abrir libro Ciencias de la Vida">
+          <img src="assets/img/cuadriptico-ciencias-de-la-vida.webp" alt="Portada del cuadríptico Ciencias de la Vida" width="690" height="920" loading="lazy">
+        </button>
+        <div class="catcard__body"><h3>Ciencias de la Vida</h3><div class="catcard__cta"><button type="button" class="btn btn--sm" data-book="ciencias-de-la-vida" data-title="Ciencias de la Vida">Abrir libro</button><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-ciencias-de-la-vida.pdf" download>Descargar</a></div></div>
       </article>
       <article class="catcard" id="cuadriptico-ambiental" style="--ac:#2e7d4f">
-        <img src="assets/img/cuadriptico-ambiental.webp" alt="Portada del cuadríptico Sector Ambiental" width="690" height="920" loading="lazy">
-        <div class="catcard__body"><h3>Sector Ambiental</h3><div class="catcard__cta"><a class="btn btn--sm" href="assets/pdf/cuadriptico-ambiental.pdf" target="_blank" rel="noopener">Ver</a><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-ambiental.pdf" download>Descargar</a></div></div>
+        <button type="button" class="catcard__cover" data-book="ambiental" data-title="Sector Ambiental" aria-label="Abrir libro Sector Ambiental">
+          <img src="assets/img/cuadriptico-ambiental.webp" alt="Portada del cuadríptico Sector Ambiental" width="690" height="920" loading="lazy">
+        </button>
+        <div class="catcard__body"><h3>Sector Ambiental</h3><div class="catcard__cta"><button type="button" class="btn btn--sm" data-book="ambiental" data-title="Sector Ambiental">Abrir libro</button><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-ambiental.pdf" download>Descargar</a></div></div>
       </article>
       <article class="catcard" id="cuadriptico-alimentos" style="--ac:#d0661c">
-        <img src="assets/img/cuadriptico-alimentos.webp" alt="Portada del cuadríptico Alimentos" width="690" height="920" loading="lazy">
-        <div class="catcard__body"><h3>Alimentos</h3><div class="catcard__cta"><a class="btn btn--sm" href="assets/pdf/cuadriptico-alimentos.pdf" target="_blank" rel="noopener">Ver</a><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-alimentos.pdf" download>Descargar</a></div></div>
+        <button type="button" class="catcard__cover" data-book="alimentos" data-title="Alimentos" aria-label="Abrir libro Alimentos">
+          <img src="assets/img/cuadriptico-alimentos.webp" alt="Portada del cuadríptico Alimentos" width="690" height="920" loading="lazy">
+        </button>
+        <div class="catcard__body"><h3>Alimentos</h3><div class="catcard__cta"><button type="button" class="btn btn--sm" data-book="alimentos" data-title="Alimentos">Abrir libro</button><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-alimentos.pdf" download>Descargar</a></div></div>
       </article>
       <article class="catcard" id="cuadriptico-clinico" style="--ac:#1f4e8c">
-        <img src="assets/img/cuadriptico-clinico.webp" alt="Portada del cuadríptico Clínico" width="690" height="920" loading="lazy">
-        <div class="catcard__body"><h3>Clínico</h3><div class="catcard__cta"><a class="btn btn--sm" href="assets/pdf/cuadriptico-clinico.pdf" target="_blank" rel="noopener">Ver</a><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-clinico.pdf" download>Descargar</a></div></div>
+        <button type="button" class="catcard__cover" data-book="clinico" data-title="Clínico" aria-label="Abrir libro Clínico">
+          <img src="assets/img/cuadriptico-clinico.webp" alt="Portada del cuadríptico Clínico" width="690" height="920" loading="lazy">
+        </button>
+        <div class="catcard__body"><h3>Clínico</h3><div class="catcard__cta"><button type="button" class="btn btn--sm" data-book="clinico" data-title="Clínico">Abrir libro</button><a class="btn btn--sm btn--out" href="assets/pdf/cuadriptico-clinico.pdf" download>Descargar</a></div></div>
       </article>
     </div>
   </div>
@@ -333,6 +362,33 @@
 <a class="wa" href="https://wa.me/524499289602?text=Hola%20Promelab%2C%20quiero%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
   <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6.1C4.9 9.8 9.9 5 16 5s11.1 4.8 11.1 10.8S22.1 26.4 16 26.4zm6.1-8c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 2.9 1.1 3.5.9 4.1.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.3-.4-.4-.7-.5z"/></svg>
 </a>
+
+<div class="book" id="book" hidden>
+  <div class="book__scrim" data-book-close></div>
+  <div class="book__panel" role="dialog" aria-modal="true" aria-labelledby="book-title">
+    <header class="book__bar">
+      <div>
+        <p class="book__kicker">Libro virtual</p>
+        <h2 id="book-title">Catálogo</h2>
+      </div>
+      <div class="book__actions">
+        <a class="btn btn--sm btn--out" id="book-pdf" href="#" download>Descargar PDF</a>
+        <button type="button" class="book__x" data-book-close aria-label="Cerrar libro">×</button>
+      </div>
+    </header>
+    <div class="book__stage">
+      <button type="button" class="book__nav book__nav--prev" id="book-prev" aria-label="Página anterior">‹</button>
+      <div class="book__scene" id="book-scene"></div>
+      <button type="button" class="book__nav book__nav--next" id="book-next" aria-label="Página siguiente">›</button>
+    </div>
+    <footer class="book__foot">
+      <p id="book-count">1 / 1</p>
+      <p class="book__hint">Haz clic en la hoja, usa las flechas o desliza para pasar la página</p>
+    </footer>
+  </div>
+</div>
+
 <script src="js/main.js" defer></script>
+<script src="js/flipbook.js" defer></script>
 </body>
 </html>
